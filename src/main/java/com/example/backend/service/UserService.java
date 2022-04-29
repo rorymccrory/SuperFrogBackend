@@ -20,8 +20,11 @@ public class UserService implements UserDetailsService {
     private UserDao userDao;
     private BCryptPasswordEncoder encoder;
 
-    public UserService(UserDao userDao, BCryptPasswordEncoder encoder) {
+    public UserService(UserDao userDao) {
         this.userDao = userDao;
+    }
+    @Autowired
+    public void setEncoder(BCryptPasswordEncoder encoder) {
         this.encoder = encoder;
     }
 
