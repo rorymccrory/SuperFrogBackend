@@ -6,7 +6,7 @@ import com.example.backend.domain.SuperFrog;
 import com.example.backend.service.SuperFrogService;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins="http://localhost:3000")
+@CrossOrigin
 @RestController
 @RequestMapping("/superfrogs")
 public class SuperFrogController {

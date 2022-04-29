@@ -6,7 +6,7 @@ import com.example.backend.domain.User;
 import com.example.backend.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins="http://localhost:3000")
+@CrossOrigin
 @RestController
 @RequestMapping("/users")
 public class UserController {
