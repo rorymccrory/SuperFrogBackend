@@ -26,6 +26,7 @@ public class DBDataInitializer implements CommandLineRunner {
     public void run(String... args) throws Exception {
         Appearance a1 = new Appearance();
         a1.setId("1");
+        a1.setIndex(1);
         a1.setTitle("Emma's Birthday");
         a1.setDate("07/02/2022");
         a1.setDescription("Celebrating Emma");
@@ -35,21 +36,23 @@ public class DBDataInitializer implements CommandLineRunner {
 
         Appearance a2 = new Appearance();
         a2.setId("2");
-
+        a2.setIndex(2);
         a2.setTitle("Logan's Birthday");
         a2.setDate("05/04/2022");
         a2.setDescription("Celebrating Logan");
         a2.setEmail("e.m.sanders@tcu.edu");
-        a1.setApproved(false);
-        a1.setCompleted(false);
+        a2.setApproved(false);
+        a2.setCompleted(false);
 
         SuperFrog sf1 = new SuperFrog();
         sf1.setIndex(1);
+        sf1.setName("Bing Wei");
         sf1.setEmail("b.wei@tcu.edu");
         sf1.addAppearance(a1);
         sf1.setActive(true);
 
         SuperFrog sf2 = new SuperFrog();
+        sf2.setName("Harry Potter");
         sf2.setEmail("h.potter@tcu.edu");
         sf2.addAppearance(a2);
         sf1.setActive(false);

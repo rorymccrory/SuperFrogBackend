@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+@CrossOrigin(origins="http://localhost:3000")
 @RestController
 @RequestMapping("/appearances")
 public class AppearanceController {
@@ -45,7 +46,7 @@ public class AppearanceController {
         return new Result(true, StatusCode.SUCCESS, "Updated Success");
     }
 
-    @DeleteMapping("/{apperaanceId}")
+    @DeleteMapping("/{appearanceId}")
     public Result delete(@PathVariable String appearanceId){
         appearanceService.delete(appearanceId);
         return new Result(true, StatusCode.SUCCESS, "Delete Success");

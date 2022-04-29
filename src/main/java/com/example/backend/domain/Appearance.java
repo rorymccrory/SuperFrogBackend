@@ -12,6 +12,7 @@ import java.time.LocalDate;
 public class Appearance implements Serializable {
     @Id
     private String id;
+    private Integer index;
     private String email;
     private String title;
     private String description;
@@ -27,8 +28,9 @@ public class Appearance implements Serializable {
     public Appearance() {
     }
 
-    public Appearance(String id, String email, String title, String description, String date, boolean completed, boolean isApproved, LocalDate createTime, SuperFrog assigned) {
+    public Appearance(String id, Integer index, String email, String title, String description, String date, boolean completed, boolean isApproved, LocalDate createTime, SuperFrog assigned) {
         this.id = id;
+        this.index = index;
         this.email = email;
         this.title = title;
         this.description = description;
@@ -41,6 +43,14 @@ public class Appearance implements Serializable {
 
     public SuperFrog getAssigned() {
         return assigned;
+    }
+
+    public Integer getIndex() {
+        return index;
+    }
+
+    public void setIndex(Integer index) {
+        this.index = index;
     }
 
     public void setAssigned(SuperFrog assigned) {
