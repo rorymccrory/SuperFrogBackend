@@ -12,11 +12,13 @@ public class SuperFrog implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String firstName;
-    private String lastName;
+    private Integer index;
+    private String name;
     private String phone;
     private String mobile;
     private String email;
+    private String company;
+    private boolean isActive;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "assigned")
     @JsonIgnore
@@ -36,24 +38,21 @@ public class SuperFrog implements Serializable {
     public Integer getId(){
         return id;
     }
+
     public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+    public Integer getIndex() { return index; }
 
-    public String getLastName() {
-        return lastName;
-    }
+    public void setIndex(Integer index) { this.index = index;}
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPhone() {
@@ -93,5 +92,11 @@ public class SuperFrog implements Serializable {
         this.appearances.remove(appearance);
     }
 
+    public boolean isActive() { return isActive; }
 
+    public void setActive(boolean active) { isActive = active; }
+
+    public String getCompany() { return company; }
+
+    public void setCompany(String company) { this.company = company; }
 }

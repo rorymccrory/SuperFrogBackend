@@ -30,21 +30,30 @@ public class DBDataInitializer implements CommandLineRunner {
         a1.setDate("07/02/2022");
         a1.setDescription("Celebrating Emma");
         a1.setEmail("e.m.sanders@tcu.edu");
+        a1.setApproved(true);
+        a1.setCompleted(false);
 
         Appearance a2 = new Appearance();
         a2.setId("2");
+
         a2.setTitle("Logan's Birthday");
         a2.setDate("05/04/2022");
         a2.setDescription("Celebrating Logan");
         a2.setEmail("e.m.sanders@tcu.edu");
+        a1.setApproved(false);
+        a1.setCompleted(false);
 
         SuperFrog sf1 = new SuperFrog();
+        sf1.setIndex(1);
         sf1.setEmail("b.wei@tcu.edu");
         sf1.addAppearance(a1);
+        sf1.setActive(true);
 
         SuperFrog sf2 = new SuperFrog();
         sf2.setEmail("h.potter@tcu.edu");
         sf2.addAppearance(a2);
+        sf1.setActive(false);
+        sf1.setIndex(2);
 
         superFrogDao.save(sf1);
         superFrogDao.save(sf2);

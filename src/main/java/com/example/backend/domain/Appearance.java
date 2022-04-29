@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
+import java.time.LocalDate;
 
 @Entity
 public class Appearance implements Serializable {
@@ -16,12 +17,26 @@ public class Appearance implements Serializable {
     private String description;
     private String date;
     private boolean completed;
+    private boolean isApproved;
+    private LocalDate createTime;
 
     @ManyToOne
     @JsonIgnore
     private SuperFrog assigned;
 
     public Appearance() {
+    }
+
+    public Appearance(String id, String email, String title, String description, String date, boolean completed, boolean isApproved, LocalDate createTime, SuperFrog assigned) {
+        this.id = id;
+        this.email = email;
+        this.title = title;
+        this.description = description;
+        this.date = date;
+        this.completed = completed;
+        this.isApproved = isApproved;
+        this.createTime = createTime;
+        this.assigned = assigned;
     }
 
     public SuperFrog getAssigned() {
@@ -74,5 +89,17 @@ public class Appearance implements Serializable {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    public boolean isApproved() { return isApproved;}
+
+    public void setApproved(boolean approved) { this.isApproved = approved; }
+
+    public LocalDate getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(LocalDate createTime) {
+        this.createTime = createTime;
     }
 }

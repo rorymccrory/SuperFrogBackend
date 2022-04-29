@@ -4,8 +4,10 @@ import com.example.backend.dao.AppearanceDao;
 import com.example.backend.domain.Appearance;
 import com.example.backend.utils.IdWorker;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -30,6 +32,8 @@ public class AppearanceService {
         return appearanceDao.findById(appearanceId).get();
     }
 
+    //public List<Appearance> findByActive() { return appearanceDao.findBy(@PathVariable )}
+
     public void save(Appearance newAppearance) {
         newAppearance.setId(idWorker.nextId() + "");
         appearanceDao.save(newAppearance);
@@ -43,4 +47,15 @@ public class AppearanceService {
     public void delete(String appearanceId) {
         appearanceDao.deleteById(appearanceId);
     }
+
+    public List<Appearance> findByDate(LocalDate startDate, LocalDate endDate){
+        return appearanceDao.findAllByCreateTimeBetween(startDate, endDate);
+    }
+
+    //public List<Appearance> findAllApproved() { return appearanceDao.findBy();}
+
+    //public List<Appearance> findAllNotApproved() { return appearanceDao.findBy(); }
+
+    //public List<Appearance> findAllCompleted() { return appearanceDao.findBy();}
+
 }
