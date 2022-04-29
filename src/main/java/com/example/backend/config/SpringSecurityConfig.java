@@ -12,26 +12,25 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-
+@CrossOrigin(origins="http://localhost:3000")
 @Configuration
 @EnableWebSecurity
-@CrossOrigin
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     private UserService userService;
 
-    @CrossOrigin
+
     @Autowired
     public void setUserService(UserService userService) {
         this.userService = userService;
     }
 
-    @CrossOrigin
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         //let Spring Security know how to retrieve user info from system
         auth.userDetailsService(this.userService);
     }
-    @CrossOrigin
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
