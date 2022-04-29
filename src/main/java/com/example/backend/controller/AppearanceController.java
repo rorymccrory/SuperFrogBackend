@@ -22,7 +22,7 @@ public class AppearanceController {
     }
 
     @GetMapping
-    @CrossOrigin(origins = "https://superfrogapp.herokuapp.com")
+    @CrossOrigin(origins = "https://superfrogapp.herokuapp.com/")
     public Result findAll(){
         List<Appearance> all = appearanceService.findAll();
         Result result = new Result(true, StatusCode.SUCCESS, "Find All Success", all);
@@ -30,28 +30,28 @@ public class AppearanceController {
     }
 
     @GetMapping("/{appearanceId}")
-    @CrossOrigin(origins = "https://superfrogapp.herokuapp.com")
+    @CrossOrigin(origins = "https://superfrogapp.herokuapp.com/")
     public Result findById(@PathVariable String appearanceId){
         return new Result(true, StatusCode.SUCCESS, "Find One Success", appearanceService.findById(appearanceId));
     }
 
 
     @PostMapping
-    @CrossOrigin(origins = "https://superfrogapp.herokuapp.com")
+    @CrossOrigin(origins = "https://superfrogapp.herokuapp.com/")
     public Result save(@RequestBody Appearance newAppearance){
         appearanceService.save(newAppearance);
         return new Result(true, StatusCode.SUCCESS, "Create Success");
     }
 
     @PutMapping("/{appearanceId}")
-    @CrossOrigin(origins = "https://superfrogapp.herokuapp.com")
+    @CrossOrigin(origins = "https://superfrogapp.herokuapp.com/")
     public Result update(@PathVariable String appearanceId, @RequestBody Appearance updatedAppearance) {
         appearanceService.update(appearanceId, updatedAppearance);
         return new Result(true, StatusCode.SUCCESS, "Updated Success");
     }
 
     @DeleteMapping("/{appearanceId}")
-    @CrossOrigin(origins = "https://superfrogapp.herokuapp.com")
+    @CrossOrigin(origins = "https://superfrogapp.herokuapp.com/")
     public Result delete(@PathVariable String appearanceId){
         appearanceService.delete(appearanceId);
         return new Result(true, StatusCode.SUCCESS, "Delete Success");
@@ -59,7 +59,7 @@ public class AppearanceController {
     }
 
     @GetMapping("/inRange")
-    @CrossOrigin(origins = "https://superfrogapp.herokuapp.com")
+    @CrossOrigin(origins = "https://superfrogapp.herokuapp.com/")
     public Result findByDate(@RequestParam String startDate, @RequestParam String endDate){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         return new Result(true, StatusCode.SUCCESS, "Find by Date Success", appearanceService.findByDate(LocalDate.parse(startDate, formatter), LocalDate.parse(endDate, formatter)));
