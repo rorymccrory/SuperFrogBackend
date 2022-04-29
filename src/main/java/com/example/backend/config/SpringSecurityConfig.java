@@ -12,8 +12,10 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
+
 @Configuration
 @EnableWebSecurity
+@CrossOrigin
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     private UserService userService;
 
