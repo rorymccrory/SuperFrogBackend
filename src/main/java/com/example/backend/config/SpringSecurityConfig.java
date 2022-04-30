@@ -44,7 +44,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 //.antMatchers(HttpMethod.GET, "/superfrogs/{id}").hasAuthority("superfrog");
                 //
 
-                .and().formLogin().loginProcessingUrl("/users/login");
+                .and().cors().and().formLogin().loginProcessingUrl("/users/login");
         http.csrf().disable();
         http.headers().frameOptions().disable();
 
