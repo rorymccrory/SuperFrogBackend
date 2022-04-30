@@ -19,7 +19,7 @@ public class AppearanceService {
 
     //Spring autowire
 
-    public AppearanceService(AppearanceDao appearanceDao, IdWorker idwWorker) {
+    public AppearanceService(AppearanceDao appearanceDao, IdWorker idWorker) {
         this.appearanceDao = appearanceDao;
         this.idWorker = idWorker;
     }

@@ -41,6 +41,8 @@ public class Appearance implements Serializable {
         this.assigned = assigned;
     }
 
+
+
     public SuperFrog getAssigned() {
         return assigned;
     }
